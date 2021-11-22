@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="caixaCEOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cargos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="dizimos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_membro" Type="int" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="periodo" Type="date" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="int" Nullable="false" />
+    <Property Name="id_lancamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="doacoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dia" Type="date" Nullable="false" />
+    <Property Name="nome_doador" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="destinacao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="int" Nullable="false" />
+    <Property Name="id_lancamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="entradas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_lancamento" Type="int" Nullable="false" />
+    <Property Name="tabela_origem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="competencia" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="forma_oferta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="100" />
+    <Property Name="detalhes" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="lancamentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descricao" Type="varbinary" MaxLength="100" Nullable="false" />
+    <Property Name="tabela_origem" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="id_tabela_origem" Type="int" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="membros">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="data_nascimento" Type="date" Nullable="false" />
+    <Property Name="id_cargo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ofertas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dia" Type="date" Nullable="false" />
+    <Property Name="qtd_adultos" Type="int" Nullable="false" />
+    <Property Name="qtd_criancas" Type="int" Nullable="false" />
+    <Property Name="total_oferta" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="missao" Type="bit" Nullable="false" />
+    <Property Name="id_tipo_culto" Type="int" Nullable="false" />
+    <Property Name="id_membro_ministrante" Type="int" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="primicias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="periodo" Type="date" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="id_membro" Type="int" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="int" Nullable="false" />
+    <Property Name="id_lancamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="saidas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_lancamento" Type="int" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="competencia" Type="date" Nullable="false" />
+    <Property Name="autorizado" Type="bit" Nullable="false" />
+    <Property Name="juros" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="descontos" Type="numeric" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipo_culto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dizimos_forma_oferta">
+    <End Role="forma_oferta" Type="Self.forma_oferta" Multiplicity="1" />
+    <End Role="dizimos" Type="Self.dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dizimos_lancamentos">
+    <End Role="lancamentos" Type="Self.lancamentos" Multiplicity="1" />
+    <End Role="dizimos" Type="Self.dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dizimos_membros">
+    <End Role="membros" Type="Self.membros" Multiplicity="1" />
+    <End Role="dizimos" Type="Self.dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_doacoes_forma_oferta">
+    <End Role="forma_oferta" Type="Self.forma_oferta" Multiplicity="1" />
+    <End Role="doacoes" Type="Self.doacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="doacoes">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_doacoes_lancamentos">
+    <End Role="lancamentos" Type="Self.lancamentos" Multiplicity="1" />
+    <End Role="doacoes" Type="Self.doacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="doacoes">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entradas_lancamentos">
+    <End Role="lancamentos" Type="Self.lancamentos" Multiplicity="1" />
+    <End Role="entradas" Type="Self.entradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="entradas">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_membros_cargos">
+    <End Role="cargos" Type="Self.cargos" Multiplicity="1" />
+    <End Role="membros" Type="Self.membros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="membros">
+        <PropertyRef Name="id_cargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_forma_oferta">
+    <End Role="forma_oferta" Type="Self.forma_oferta" Multiplicity="1" />
+    <End Role="ofertas" Type="Self.ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_membros">
+    <End Role="membros" Type="Self.membros" Multiplicity="1" />
+    <End Role="ofertas" Type="Self.ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_membro_ministrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_tipo_culto">
+    <End Role="tipo_culto" Type="Self.tipo_culto" Multiplicity="1" />
+    <End Role="ofertas" Type="Self.ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_culto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_tipo_culto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_forma_oferta">
+    <End Role="forma_oferta" Type="Self.forma_oferta" Multiplicity="1" />
+    <End Role="primicias" Type="Self.primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_lancamentos">
+    <End Role="lancamentos" Type="Self.lancamentos" Multiplicity="1" />
+    <End Role="primicias" Type="Self.primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_membros">
+    <End Role="membros" Type="Self.membros" Multiplicity="1" />
+    <End Role="primicias" Type="Self.primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_saidas_lancamentos">
+    <End Role="lancamentos" Type="Self.lancamentos" Multiplicity="1" />
+    <End Role="saidas" Type="Self.saidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="saidas">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="caixaCEOModelStoreContainer">
+    <EntitySet Name="cargos" EntityType="Self.cargos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dizimos" EntityType="Self.dizimos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doacoes" EntityType="Self.doacoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="entradas" EntityType="Self.entradas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forma_oferta" EntityType="Self.forma_oferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lancamentos" EntityType="Self.lancamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="membros" EntityType="Self.membros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ofertas" EntityType="Self.ofertas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="primicias" EntityType="Self.primicias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="saidas" EntityType="Self.saidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_culto" EntityType="Self.tipo_culto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dizimos_forma_oferta" Association="Self.FK_dizimos_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dizimos_lancamentos" Association="Self.FK_dizimos_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dizimos_membros" Association="Self.FK_dizimos_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_doacoes_forma_oferta" Association="Self.FK_doacoes_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="doacoes" EntitySet="doacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_doacoes_lancamentos" Association="Self.FK_doacoes_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="doacoes" EntitySet="doacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entradas_lancamentos" Association="Self.FK_entradas_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="entradas" EntitySet="entradas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_membros_cargos" Association="Self.FK_membros_cargos">
+      <End Role="cargos" EntitySet="cargos" />
+      <End Role="membros" EntitySet="membros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_forma_oferta" Association="Self.FK_ofertas_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_membros" Association="Self.FK_ofertas_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_tipo_culto" Association="Self.FK_ofertas_tipo_culto">
+      <End Role="tipo_culto" EntitySet="tipo_culto" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_forma_oferta" Association="Self.FK_primicias_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_lancamentos" Association="Self.FK_primicias_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_membros" Association="Self.FK_primicias_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_saidas_lancamentos" Association="Self.FK_saidas_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="saidas" EntitySet="saidas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

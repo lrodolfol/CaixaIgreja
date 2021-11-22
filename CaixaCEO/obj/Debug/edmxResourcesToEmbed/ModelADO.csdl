@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="caixaCEOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ativo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="AppDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+    <EntitySet Name="cargos" EntityType="caixaCEOModel.cargos" />
+    <EntitySet Name="dizimos" EntityType="caixaCEOModel.dizimos" />
+    <EntitySet Name="doacoes" EntityType="caixaCEOModel.doacoes" />
+    <EntitySet Name="entradas" EntityType="caixaCEOModel.entradas" />
+    <EntitySet Name="forma_oferta" EntityType="caixaCEOModel.forma_oferta" />
+    <EntitySet Name="lancamentos" EntityType="caixaCEOModel.lancamentos" />
+    <EntitySet Name="membros" EntityType="caixaCEOModel.membros" />
+    <EntitySet Name="ofertas" EntityType="caixaCEOModel.ofertas" />
+    <EntitySet Name="primicias" EntityType="caixaCEOModel.primicias" />
+    <EntitySet Name="saidas" EntityType="caixaCEOModel.saidas" />
+    <EntitySet Name="sysdiagrams" EntityType="caixaCEOModel.sysdiagrams" />
+    <EntitySet Name="tipo_culto" EntityType="caixaCEOModel.tipo_culto" />
+    <AssociationSet Name="FK_membros_cargos" Association="caixaCEOModel.FK_membros_cargos">
+      <End Role="cargos" EntitySet="cargos" />
+      <End Role="membros" EntitySet="membros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dizimos_forma_oferta" Association="caixaCEOModel.FK_dizimos_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dizimos_lancamentos" Association="caixaCEOModel.FK_dizimos_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dizimos_membros" Association="caixaCEOModel.FK_dizimos_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="dizimos" EntitySet="dizimos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_doacoes_forma_oferta" Association="caixaCEOModel.FK_doacoes_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="doacoes" EntitySet="doacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_doacoes_lancamentos" Association="caixaCEOModel.FK_doacoes_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="doacoes" EntitySet="doacoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entradas_lancamentos" Association="caixaCEOModel.FK_entradas_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="entradas" EntitySet="entradas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_forma_oferta" Association="caixaCEOModel.FK_ofertas_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_forma_oferta" Association="caixaCEOModel.FK_primicias_forma_oferta">
+      <End Role="forma_oferta" EntitySet="forma_oferta" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_lancamentos" Association="caixaCEOModel.FK_primicias_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_saidas_lancamentos" Association="caixaCEOModel.FK_saidas_lancamentos">
+      <End Role="lancamentos" EntitySet="lancamentos" />
+      <End Role="saidas" EntitySet="saidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_membros" Association="caixaCEOModel.FK_ofertas_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_primicias_membros" Association="caixaCEOModel.FK_primicias_membros">
+      <End Role="membros" EntitySet="membros" />
+      <End Role="primicias" EntitySet="primicias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ofertas_tipo_culto" Association="caixaCEOModel.FK_ofertas_tipo_culto">
+      <End Role="tipo_culto" EntitySet="tipo_culto" />
+      <End Role="ofertas" EntitySet="ofertas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cargos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="membros" Relationship="caixaCEOModel.FK_membros_cargos" FromRole="cargos" ToRole="membros" />
+  </EntityType>
+  <EntityType Name="dizimos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_membro" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="periodo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="id_forma_oferta" Type="Int32" Nullable="false" />
+    <Property Name="id_lancamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="forma_oferta" Relationship="caixaCEOModel.FK_dizimos_forma_oferta" FromRole="dizimos" ToRole="forma_oferta" />
+    <NavigationProperty Name="lancamentos" Relationship="caixaCEOModel.FK_dizimos_lancamentos" FromRole="dizimos" ToRole="lancamentos" />
+    <NavigationProperty Name="membros" Relationship="caixaCEOModel.FK_dizimos_membros" FromRole="dizimos" ToRole="membros" />
+  </EntityType>
+  <EntityType Name="doacoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="nome_doador" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="destinacao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_forma_oferta" Type="Int32" Nullable="false" />
+    <Property Name="id_lancamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="forma_oferta" Relationship="caixaCEOModel.FK_doacoes_forma_oferta" FromRole="doacoes" ToRole="forma_oferta" />
+    <NavigationProperty Name="lancamentos" Relationship="caixaCEOModel.FK_doacoes_lancamentos" FromRole="doacoes" ToRole="lancamentos" />
+  </EntityType>
+  <EntityType Name="entradas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_lancamento" Type="Int32" Nullable="false" />
+    <Property Name="tabela_origem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="competencia" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="lancamentos" Relationship="caixaCEOModel.FK_entradas_lancamentos" FromRole="entradas" ToRole="lancamentos" />
+  </EntityType>
+  <EntityType Name="forma_oferta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="detalhes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dizimos" Relationship="caixaCEOModel.FK_dizimos_forma_oferta" FromRole="forma_oferta" ToRole="dizimos" />
+    <NavigationProperty Name="doacoes" Relationship="caixaCEOModel.FK_doacoes_forma_oferta" FromRole="forma_oferta" ToRole="doacoes" />
+    <NavigationProperty Name="ofertas" Relationship="caixaCEOModel.FK_ofertas_forma_oferta" FromRole="forma_oferta" ToRole="ofertas" />
+    <NavigationProperty Name="primicias" Relationship="caixaCEOModel.FK_primicias_forma_oferta" FromRole="forma_oferta" ToRole="primicias" />
+  </EntityType>
+  <EntityType Name="lancamentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="Binary" Nullable="false" MaxLength="100" FixedLength="false" />
+    <Property Name="tabela_origem" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="id_tabela_origem" Type="Int32" Nullable="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="dizimos" Relationship="caixaCEOModel.FK_dizimos_lancamentos" FromRole="lancamentos" ToRole="dizimos" />
+    <NavigationProperty Name="doacoes" Relationship="caixaCEOModel.FK_doacoes_lancamentos" FromRole="lancamentos" ToRole="doacoes" />
+    <NavigationProperty Name="entradas" Relationship="caixaCEOModel.FK_entradas_lancamentos" FromRole="lancamentos" ToRole="entradas" />
+    <NavigationProperty Name="primicias" Relationship="caixaCEOModel.FK_primicias_lancamentos" FromRole="lancamentos" ToRole="primicias" />
+    <NavigationProperty Name="saidas" Relationship="caixaCEOModel.FK_saidas_lancamentos" FromRole="lancamentos" ToRole="saidas" />
+  </EntityType>
+  <EntityType Name="membros">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="data_nascimento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_cargo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cargos" Relationship="caixaCEOModel.FK_membros_cargos" FromRole="membros" ToRole="cargos" />
+    <NavigationProperty Name="dizimos" Relationship="caixaCEOModel.FK_dizimos_membros" FromRole="membros" ToRole="dizimos" />
+    <NavigationProperty Name="ofertas" Relationship="caixaCEOModel.FK_ofertas_membros" FromRole="membros" ToRole="ofertas" />
+    <NavigationProperty Name="primicias" Relationship="caixaCEOModel.FK_primicias_membros" FromRole="membros" ToRole="primicias" />
+  </EntityType>
+  <EntityType Name="ofertas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="qtd_adultos" Type="Int32" Nullable="false" />
+    <Property Name="qtd_criancas" Type="Int32" Nullable="false" />
+    <Property Name="total_oferta" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="missao" Type="Boolean" Nullable="false" />
+    <Property Name="id_tipo_culto" Type="Int32" Nullable="false" />
+    <Property Name="id_membro_ministrante" Type="Int32" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="forma_oferta" Relationship="caixaCEOModel.FK_ofertas_forma_oferta" FromRole="ofertas" ToRole="forma_oferta" />
+    <NavigationProperty Name="membros" Relationship="caixaCEOModel.FK_ofertas_membros" FromRole="ofertas" ToRole="membros" />
+    <NavigationProperty Name="tipo_culto" Relationship="caixaCEOModel.FK_ofertas_tipo_culto" FromRole="ofertas" ToRole="tipo_culto" />
+  </EntityType>
+  <EntityType Name="primicias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="periodo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="id_membro" Type="Int32" Nullable="false" />
+    <Property Name="id_forma_oferta" Type="Int32" Nullable="false" />
+    <Property Name="id_lancamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="forma_oferta" Relationship="caixaCEOModel.FK_primicias_forma_oferta" FromRole="primicias" ToRole="forma_oferta" />
+    <NavigationProperty Name="lancamentos" Relationship="caixaCEOModel.FK_primicias_lancamentos" FromRole="primicias" ToRole="lancamentos" />
+    <NavigationProperty Name="membros" Relationship="caixaCEOModel.FK_primicias_membros" FromRole="primicias" ToRole="membros" />
+  </EntityType>
+  <EntityType Name="saidas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_lancamento" Type="Int32" Nullable="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="competencia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="autorizado" Type="Boolean" Nullable="false" />
+    <Property Name="juros" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="descontos" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <NavigationProperty Name="lancamentos" Relationship="caixaCEOModel.FK_saidas_lancamentos" FromRole="saidas" ToRole="lancamentos" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tipo_culto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ofertas" Relationship="caixaCEOModel.FK_ofertas_tipo_culto" FromRole="tipo_culto" ToRole="ofertas" />
+  </EntityType>
+  <Association Name="FK_membros_cargos">
+    <End Type="caixaCEOModel.cargos" Role="cargos" Multiplicity="1" />
+    <End Type="caixaCEOModel.membros" Role="membros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="membros">
+        <PropertyRef Name="id_cargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dizimos_forma_oferta">
+    <End Type="caixaCEOModel.forma_oferta" Role="forma_oferta" Multiplicity="1" />
+    <End Type="caixaCEOModel.dizimos" Role="dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dizimos_lancamentos">
+    <End Type="caixaCEOModel.lancamentos" Role="lancamentos" Multiplicity="1" />
+    <End Type="caixaCEOModel.dizimos" Role="dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dizimos_membros">
+    <End Type="caixaCEOModel.membros" Role="membros" Multiplicity="1" />
+    <End Type="caixaCEOModel.dizimos" Role="dizimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dizimos">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_doacoes_forma_oferta">
+    <End Type="caixaCEOModel.forma_oferta" Role="forma_oferta" Multiplicity="1" />
+    <End Type="caixaCEOModel.doacoes" Role="doacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="doacoes">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_doacoes_lancamentos">
+    <End Type="caixaCEOModel.lancamentos" Role="lancamentos" Multiplicity="1" />
+    <End Type="caixaCEOModel.doacoes" Role="doacoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="doacoes">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entradas_lancamentos">
+    <End Type="caixaCEOModel.lancamentos" Role="lancamentos" Multiplicity="1" />
+    <End Type="caixaCEOModel.entradas" Role="entradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="entradas">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_forma_oferta">
+    <End Type="caixaCEOModel.forma_oferta" Role="forma_oferta" Multiplicity="1" />
+    <End Type="caixaCEOModel.ofertas" Role="ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_forma_oferta">
+    <End Type="caixaCEOModel.forma_oferta" Role="forma_oferta" Multiplicity="1" />
+    <End Type="caixaCEOModel.primicias" Role="primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_oferta">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_forma_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_lancamentos">
+    <End Type="caixaCEOModel.lancamentos" Role="lancamentos" Multiplicity="1" />
+    <End Type="caixaCEOModel.primicias" Role="primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_saidas_lancamentos">
+    <End Type="caixaCEOModel.lancamentos" Role="lancamentos" Multiplicity="1" />
+    <End Type="caixaCEOModel.saidas" Role="saidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lancamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="saidas">
+        <PropertyRef Name="id_lancamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_membros">
+    <End Type="caixaCEOModel.membros" Role="membros" Multiplicity="1" />
+    <End Type="caixaCEOModel.ofertas" Role="ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_membro_ministrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_primicias_membros">
+    <End Type="caixaCEOModel.membros" Role="membros" Multiplicity="1" />
+    <End Type="caixaCEOModel.primicias" Role="primicias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="membros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="primicias">
+        <PropertyRef Name="id_membro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ofertas_tipo_culto">
+    <End Type="caixaCEOModel.tipo_culto" Role="tipo_culto" Multiplicity="1" />
+    <End Type="caixaCEOModel.ofertas" Role="ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_culto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ofertas">
+        <PropertyRef Name="id_tipo_culto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

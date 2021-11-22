@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08155cbe1c8841809d004fdaa1791bba" Name="Diagram1">
+        <EntityTypeShape EntityType="caixaCEOModel.usuarios" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="caixaCEOModel.cargos" Width="1.5" PointX="1.125" PointY="5.75" />
+        <EntityTypeShape EntityType="caixaCEOModel.dizimos" Width="1.5" PointX="8.625" PointY="9.125" />
+        <EntityTypeShape EntityType="caixaCEOModel.doacoes" Width="1.5" PointX="8.625" PointY="5.25" />
+        <EntityTypeShape EntityType="caixaCEOModel.entradas" Width="1.5" PointX="5.625" PointY="8" />
+        <EntityTypeShape EntityType="caixaCEOModel.forma_oferta" Width="1.5" PointX="3.5" PointY="3.125" />
+        <EntityTypeShape EntityType="caixaCEOModel.lancamentos" Width="1.5" PointX="1.125" PointY="8.25" />
+        <EntityTypeShape EntityType="caixaCEOModel.membros" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="caixaCEOModel.ofertas" Width="1.5" PointX="8.625" PointY="1" />
+        <EntityTypeShape EntityType="caixaCEOModel.primicias" Width="1.5" PointX="3.625" PointY="6.75" />
+        <EntityTypeShape EntityType="caixaCEOModel.saidas" Width="1.5" PointX="3.25" PointY="11.375" />
+        <EntityTypeShape EntityType="caixaCEOModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.625" />
+        <EntityTypeShape EntityType="caixaCEOModel.tipo_culto" Width="1.5" PointX="4.5" PointY="0.75" />
+        <AssociationConnector Association="caixaCEOModel.FK_membros_cargos" />
+        <AssociationConnector Association="caixaCEOModel.FK_dizimos_forma_oferta" />
+        <AssociationConnector Association="caixaCEOModel.FK_dizimos_lancamentos" />
+        <AssociationConnector Association="caixaCEOModel.FK_dizimos_membros" />
+        <AssociationConnector Association="caixaCEOModel.FK_doacoes_forma_oferta" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5" PointY="5.4348428776041651" />
+          <ConnectorPoint PointX="6.19625" PointY="5.4348428776041651" />
+          <ConnectorPoint PointX="6.19625" PointY="5.1848428776041651" />
+          <ConnectorPoint PointX="7.42875" PointY="5.1848428776041651" />
+          <ConnectorPoint PointX="7.42875" PointY="5.4348428776041651" />
+          <ConnectorPoint PointX="8.625" PointY="5.4348428776041651" />
+        </AssociationConnector>
+        <AssociationConnector Association="caixaCEOModel.FK_doacoes_lancamentos" />
+        <AssociationConnector Association="caixaCEOModel.FK_entradas_lancamentos" />
+        <AssociationConnector Association="caixaCEOModel.FK_ofertas_forma_oferta" />
+        <AssociationConnector Association="caixaCEOModel.FK_primicias_forma_oferta" />
+        <AssociationConnector Association="caixaCEOModel.FK_primicias_lancamentos" />
+        <AssociationConnector Association="caixaCEOModel.FK_saidas_lancamentos" />
+        <AssociationConnector Association="caixaCEOModel.FK_ofertas_membros" />
+        <AssociationConnector Association="caixaCEOModel.FK_primicias_membros" />
+        <AssociationConnector Association="caixaCEOModel.FK_ofertas_tipo_culto" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
