@@ -9,6 +9,7 @@ namespace CaixaCEO.Controller
 {
     class CargosController
     {
+        private CargosDAO cargosDao;
         public string mensagem { get; set; }
 
         public bool salvar(string nome, string descricao, int id)
@@ -19,7 +20,7 @@ namespace CaixaCEO.Controller
                 return false;
             }
 
-            CargosDAO cargosDao = new CargosDAO();
+            cargosDao = new CargosDAO();
             cargos cargo = new cargos();
             cargo.nome = nome;
             cargo.descricao = descricao;
@@ -30,16 +31,22 @@ namespace CaixaCEO.Controller
 
         public int buscar()
         {
-            CargosDAO cargoDAO = new CargosDAO();
-            int idCargo = cargoDAO.buscar();
+            this.cargosDao = new CargosDAO();
+            int idCargo = cargosDao.buscar();
 
             return idCargo + 1;
         }
 
         public List<cargos> retornaCargos(object idCargo = null)
         {
-            CargosDAO cargoDao = new CargosDAO();
-            return cargoDao.retornaCargos(idCargo);
+            cargosDao = new CargosDAO();
+            return cargosDao.retornaCargos(idCargo);
+        }
+
+        public bool excluirCargo(cargos cargo)
+        {
+            cargosDao = new CargosDAO();
+            return cargosDao.excluirCargos(cargo);
         }
     }
 }

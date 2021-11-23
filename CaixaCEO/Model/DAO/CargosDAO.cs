@@ -8,8 +8,10 @@ namespace CaixaCEO.Model.DAO
 {
     class CargosDAO
     {
+        private bool condicao;
         public int buscar()
         {
+            int idCargo = 0;
             using (AppDB context = new AppDB())
             {
                 var n = (from u in context.cargos orderby u.id descending select u).Take(1);
@@ -17,17 +19,17 @@ namespace CaixaCEO.Model.DAO
                 {
                     try
                     {
-                        return u.id;
+                        idCargo = u.id;
                     }
                     catch (Exception)
                     {
-                        return 0;
+                        idCargo = 0;
                     }
                 }
 
             }
 
-            return 0;
+            return idCargo;
         }
 
         public bool salvar(cargos cargo)
@@ -53,20 +55,22 @@ namespace CaixaCEO.Model.DAO
                     }
 
                     context.SaveChanges();
-                    return true;
+                    this.condicao = true;
                 }
                 catch (Exception)
                 {
-                    return false;
+                    this.condicao = false;
                 }
             }
+
+            return this.condicao;
         }
 
         public List<cargos> retornaCargos(object idCargo = null)
         {
+            List<cargos> listCargos = new List<cargos>();
             using (AppDB context = new AppDB())
             {
-                List<cargos> listCargos = new List<cargos>();
                 cargos cargo = new cargos();
 
                 //PODE BUSCAR O CARGO PELO ID DO PARAMETRO, OU RETORNA TODOS OS CARGOS
@@ -92,8 +96,32 @@ namespace CaixaCEO.Model.DAO
                         listCargos.Add(cargo);
                     }
                 }
-                return listCargos;
             }
+
+            return listCargos;
+        }
+
+        public bool excluirCargos(cargos cargo)
+        {
+            using (AppDB context = new AppDB())
+            {
+                cargos cargos = context.cargos.Find(cargo.id);
+                if(cargos != null)
+                {
+                    try
+                    {
+                        context.cargos.Remove(cargos);
+                        context.SaveChanges();
+                        this.condicao = true;
+                    }
+                    catch(Exception)
+                    {
+                        this.condicao = false;
+                    }
+                }
+            }
+
+            return this.condicao;
         }
     }
 }

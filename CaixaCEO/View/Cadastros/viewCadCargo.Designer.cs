@@ -38,6 +38,7 @@
             this.lblMensagemCargos = new System.Windows.Forms.Label();
             this.groupBoxCargos = new System.Windows.Forms.GroupBox();
             this.cmbCargos = new System.Windows.Forms.ComboBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBoxCargos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // btnSalvarCargo
             // 
             this.btnSalvarCargo.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarCargo.Location = new System.Drawing.Point(156, 262);
+            this.btnSalvarCargo.Location = new System.Drawing.Point(61, 267);
             this.btnSalvarCargo.Name = "btnSalvarCargo";
             this.btnSalvarCargo.Size = new System.Drawing.Size(92, 35);
             this.btnSalvarCargo.TabIndex = 2;
@@ -113,6 +114,7 @@
             // 
             // groupBoxCargos
             // 
+            this.groupBoxCargos.Controls.Add(this.btnExcluir);
             this.groupBoxCargos.Controls.Add(this.btnSalvarCargo);
             this.groupBoxCargos.Controls.Add(this.lblMensagemCargos);
             this.groupBoxCargos.Controls.Add(this.label1);
@@ -135,6 +137,17 @@
             this.cmbCargos.Size = new System.Drawing.Size(169, 21);
             this.cmbCargos.TabIndex = 8;
             this.cmbCargos.SelectedIndexChanged += new System.EventHandler(this.cmbCargos_SelectedIndexChanged);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(162, 267);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(92, 35);
+            this.btnExcluir.TabIndex = 8;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // viewCadCargo
             // 
@@ -164,5 +177,6 @@
         private System.Windows.Forms.Label lblMensagemCargos;
         private System.Windows.Forms.GroupBox groupBoxCargos;
         private System.Windows.Forms.ComboBox cmbCargos;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
