@@ -13,4 +13,5 @@ C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\bin\Debug\EntityFramework.xml
 C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.csproj.CopyComplete
 C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.View.viewMDI.resources
 C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.View.Cadastros.viewCadCargo.resources
-C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.View.viewMembros.resources
+C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.View.Heranca.viewHerancaUm.resources
+C:\Users\rodol\Documents\C#\CaixaCEO\CaixaCEO\obj\Debug\CaixaCEO.View.Cadastros.viewCadMembros.resources

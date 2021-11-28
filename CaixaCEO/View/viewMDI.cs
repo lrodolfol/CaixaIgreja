@@ -26,7 +26,8 @@ namespace CaixaCEO.View
 
         private void membrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            viewCadMembros cadMembro = new viewCadMembros();
+            cadMembro.Show();
         }
 
         private void cargosToolStripMenuItem_Click(object sender, EventArgs e)

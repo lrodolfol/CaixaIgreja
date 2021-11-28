@@ -37,8 +37,8 @@
             this.txtIdCargo = new System.Windows.Forms.TextBox();
             this.lblMensagemCargos = new System.Windows.Forms.Label();
             this.groupBoxCargos = new System.Windows.Forms.GroupBox();
-            this.cmbCargos = new System.Windows.Forms.ComboBox();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.cmbCargos = new System.Windows.Forms.ComboBox();
             this.groupBoxCargos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +107,7 @@
             // lblMensagemCargos
             // 
             this.lblMensagemCargos.AutoSize = true;
-            this.lblMensagemCargos.Location = new System.Drawing.Point(6, 318);
+            this.lblMensagemCargos.Location = new System.Drawing.Point(12, 360);
             this.lblMensagemCargos.Name = "lblMensagemCargos";
             this.lblMensagemCargos.Size = new System.Drawing.Size(0, 13);
             this.lblMensagemCargos.TabIndex = 7;
@@ -116,7 +116,6 @@
             // 
             this.groupBoxCargos.Controls.Add(this.btnExcluir);
             this.groupBoxCargos.Controls.Add(this.btnSalvarCargo);
-            this.groupBoxCargos.Controls.Add(this.lblMensagemCargos);
             this.groupBoxCargos.Controls.Add(this.label1);
             this.groupBoxCargos.Controls.Add(this.txtIdCargo);
             this.groupBoxCargos.Controls.Add(this.label2);
@@ -125,18 +124,9 @@
             this.groupBoxCargos.Controls.Add(this.txtDerscricaoCargo);
             this.groupBoxCargos.Location = new System.Drawing.Point(4, 31);
             this.groupBoxCargos.Name = "groupBoxCargos";
-            this.groupBoxCargos.Size = new System.Drawing.Size(260, 347);
+            this.groupBoxCargos.Size = new System.Drawing.Size(260, 321);
             this.groupBoxCargos.TabIndex = 8;
             this.groupBoxCargos.TabStop = false;
-            // 
-            // cmbCargos
-            // 
-            this.cmbCargos.FormattingEnabled = true;
-            this.cmbCargos.Location = new System.Drawing.Point(4, 4);
-            this.cmbCargos.Name = "cmbCargos";
-            this.cmbCargos.Size = new System.Drawing.Size(169, 21);
-            this.cmbCargos.TabIndex = 8;
-            this.cmbCargos.SelectedIndexChanged += new System.EventHandler(this.cmbCargos_SelectedIndexChanged);
             // 
             // btnExcluir
             // 
@@ -149,6 +139,15 @@
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // cmbCargos
+            // 
+            this.cmbCargos.FormattingEnabled = true;
+            this.cmbCargos.Location = new System.Drawing.Point(4, 4);
+            this.cmbCargos.Name = "cmbCargos";
+            this.cmbCargos.Size = new System.Drawing.Size(169, 21);
+            this.cmbCargos.TabIndex = 8;
+            this.cmbCargos.SelectedIndexChanged += new System.EventHandler(this.cmbCargos_SelectedIndexChanged);
+            // 
             // viewCadCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,12 +155,14 @@
             this.ClientSize = new System.Drawing.Size(270, 383);
             this.Controls.Add(this.cmbCargos);
             this.Controls.Add(this.groupBoxCargos);
+            this.Controls.Add(this.lblMensagemCargos);
             this.Name = "viewCadCargo";
             this.Text = "Cadastro de cargos";
             this.Load += new System.EventHandler(this.viewCadCargo_Load);
             this.groupBoxCargos.ResumeLayout(false);
             this.groupBoxCargos.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

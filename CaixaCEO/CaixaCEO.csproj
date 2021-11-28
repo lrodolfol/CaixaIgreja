@@ -57,7 +57,8 @@
       <DependentUpon>ModelADO.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\CargosController.cs" />
-    <Compile Include="Controller\Funcoes\Funcoes.cs" />
+    <Compile Include="Funcoes\Funcoes.cs" />
+    <Compile Include="Controller\MembrosController.cs" />
     <Compile Include="dizimos.cs">
       <DependentUpon>ModelADO.tt</DependentUpon>
     </Compile>
@@ -93,6 +94,7 @@
     </Compile>
     <Compile Include="Model\Banco\Conexao.cs" />
     <Compile Include="Model\DAO\CargosDAO.cs" />
+    <Compile Include="Model\DAO\MembrosDAO.cs" />
     <Compile Include="Model\Entidade\cargos.cs" />
     <Compile Include="Model\Entidade\EntidadeLogin.cs" />
     <Compile Include="Model\Entidade\Membros.cs" />
@@ -120,6 +122,18 @@
     <Compile Include="View\Cadastros\viewCadCargo.Designer.cs">
       <DependentUpon>viewCadCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Cadastros\viewCadMembros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastros\viewCadMembros.Designer.cs">
+      <DependentUpon>viewCadMembros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Heranca\viewHerancaUm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Heranca\viewHerancaUm.Designer.cs">
+      <DependentUpon>viewHerancaUm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\viewCadCargos.cs" />
     <Compile Include="View\viewLogin.cs">
       <SubType>Form</SubType>
@@ -134,12 +148,6 @@
     </Compile>
     <Compile Include="View\viewMDI.Designer.cs">
       <DependentUpon>viewMDI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Cadastros\viewCadMembros.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Cadastros\viewCadMembros.Designer.cs">
-      <DependentUpon>viewCadMembros.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastros\viewCadMembros.resx">
       <DependentUpon>viewCadMembros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Heranca\viewHerancaUm.resx">
+      <DependentUpon>viewHerancaUm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\viewLogin.resx">
       <DependentUpon>viewLogin.cs</DependentUpon>

@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CaixaCEO.Controller.Funcoes;
 
 namespace CaixaCEO.View.Cadastros
 {
@@ -24,11 +23,12 @@ namespace CaixaCEO.View.Cadastros
             CargosController cargosController = new CargosController();
             if (cargosController.salvar(txtNomeCargo.Text, txtDerscricaoCargo.Text, int.Parse(txtIdCargo.Text)))
             {
+                limpaCampos();
+
                 string msg = string.Format("Cargo de {0} salvo com sucesso", txtNomeCargo.Text);
                 lblMensagemCargos.ForeColor = Color.Green;
                 lblMensagemCargos.Text = msg;
-
-                limpaCampos();
+                
                 txtIdCargo.Text = cargosController.buscar().ToString();
                 carregaComboCargos();
             }
