@@ -31,5 +31,11 @@ namespace CaixaCEO.Controller
             return membroDao.salvar(membro);    
         }
 
+        public bool excluirMembro(membros membro)
+        {
+            MembrosDAO membrosDao = new MembrosDAO();
+            return membrosDao.excluirMembro(membro);
+        }
+
     }
 }

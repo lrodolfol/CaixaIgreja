@@ -83,7 +83,8 @@ namespace CaixaCEO.View.Cadastros
             membros membro = new membros();
             membro.nome = txtNomeMembro.Text;
             membro.data_nascimento = Convert.ToDateTime(txtDataNascimento.Text);
-            membro.id_cargo = cargo.id;
+            membro.id = Convert.ToInt16(txtIdMembro.Text);
+            membro.id_cargo = Convert.ToInt16(cargo.id);
             membro.cargos = cargo;
 
             Funcoes.Funcoes.limpaCampos(grpMembros);
@@ -101,6 +102,30 @@ namespace CaixaCEO.View.Cadastros
 
             txtIdMembro.Text = membrosController.buscar().ToString();
             this.carregaComboMembros();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (cmbMembros.SelectedIndex <= 0) { return; }
+            DialogResult res = MessageBox.Show("Excluir membro selecionado?", "Confirma", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                MembrosController membrosController = new MembrosController();
+                membros membro = new membros();
+                membro.id = (int)cmbMembros.SelectedValue;
+                membrosController.excluirMembro(membro);
+
+                Funcoes.Funcoes.limpaCampos(grpMembros);
+                this.carregaComboMembros();
+
+                lblMensagem.ForeColor = Color.Green;
+                lblMensagem.Text = "Membro excluido com sucesso";
+            }
+            else
+            {
+                lblMensagem.ForeColor = Color.Red;
+                lblMensagem.Text = "Erro ao excluir o membro. Tente novamente";
+            }
         }
     }
 }

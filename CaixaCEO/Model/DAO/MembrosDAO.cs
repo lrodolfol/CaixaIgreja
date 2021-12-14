@@ -113,7 +113,6 @@ namespace CaixaCEO.Model.DAO
             return listMembros;
         }
 
-
         public bool salvar(membros membro)
         {
             using (AppDB context = new AppDB())
@@ -128,6 +127,7 @@ namespace CaixaCEO.Model.DAO
                         memb.nome = membro.nome;
                         memb.data_nascimento = membro.data_nascimento;
                         memb.cargos = membro.cargos;
+                        memb.id_cargo = membro.id_cargo;
                     }
                     else
                     {
@@ -148,6 +148,29 @@ namespace CaixaCEO.Model.DAO
             }
 
             return condicao;
+        }
+
+        public bool excluirMembro(membros membro)
+        {
+            using (AppDB context = new AppDB())
+            {
+                membros membros = context.membros.Find(membro.id);
+                if (membros != null)
+                {
+                    try
+                    {
+                        context.membros.Remove(membros);
+                        context.SaveChanges();
+                        this.condicao = true;
+                    }
+                    catch (Exception)
+                    {
+                        this.condicao = false;
+                    }
+                }
+            }
+
+            return this.condicao;
         }
     }
 }

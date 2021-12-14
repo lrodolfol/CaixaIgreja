@@ -39,10 +39,10 @@
             this.lblIdade = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.grpMembros = new System.Windows.Forms.GroupBox();
+            this.lblMensagem = new System.Windows.Forms.Label();
+            this.cmbCargos = new System.Windows.Forms.ComboBox();
             this.btnAcessarCargos = new System.Windows.Forms.Button();
             this.cmbMembros = new System.Windows.Forms.ComboBox();
-            this.cmbCargos = new System.Windows.Forms.ComboBox();
-            this.lblMensagem = new System.Windows.Forms.Label();
             this.grpMembros.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,7 @@
             this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtDataNascimento
             // 
@@ -158,6 +159,23 @@
             this.grpMembros.TabIndex = 9;
             this.grpMembros.TabStop = false;
             // 
+            // lblMensagem
+            // 
+            this.lblMensagem.AutoSize = true;
+            this.lblMensagem.Location = new System.Drawing.Point(8, 337);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(35, 13);
+            this.lblMensagem.TabIndex = 17;
+            this.lblMensagem.Text = "label2";
+            // 
+            // cmbCargos
+            // 
+            this.cmbCargos.FormattingEnabled = true;
+            this.cmbCargos.Location = new System.Drawing.Point(6, 187);
+            this.cmbCargos.Name = "cmbCargos";
+            this.cmbCargos.Size = new System.Drawing.Size(213, 21);
+            this.cmbCargos.TabIndex = 16;
+            // 
             // btnAcessarCargos
             // 
             this.btnAcessarCargos.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,23 +194,6 @@
             this.cmbMembros.Size = new System.Drawing.Size(169, 21);
             this.cmbMembros.TabIndex = 15;
             this.cmbMembros.SelectedIndexChanged += new System.EventHandler(this.cmbMembros_SelectedIndexChanged);
-            // 
-            // cmbCargos
-            // 
-            this.cmbCargos.FormattingEnabled = true;
-            this.cmbCargos.Location = new System.Drawing.Point(6, 187);
-            this.cmbCargos.Name = "cmbCargos";
-            this.cmbCargos.Size = new System.Drawing.Size(213, 21);
-            this.cmbCargos.TabIndex = 16;
-            // 
-            // lblMensagem
-            // 
-            this.lblMensagem.AutoSize = true;
-            this.lblMensagem.Location = new System.Drawing.Point(8, 337);
-            this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(35, 13);
-            this.lblMensagem.TabIndex = 17;
-            this.lblMensagem.Text = "label2";
             // 
             // viewCadMembros
             // 
